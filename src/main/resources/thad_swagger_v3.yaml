@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger Petstore
+  license:
+    name: MIT
+  contact:
+    name: Thaddeus Madison Jr
+    email: thaddeus.madison@gmail.com
+ 
+servers:
+  - url: http://localhost:8080/api
+    description: Optional server description, e.g. Main (production) server
+paths:
+  /hello/{name}:
+    get:
+      description: Describe this route
+      summary: Describe this route
+      operationId: showHelloByName
+      parameters:
+        - in: path
+          name: name
+          required:  true
+          description:  An api that takes in a user's name and returns a simple hello message back to the user.
+          schema:
+            type:  string
+      responses:
+        200:
+          description: A message of "Hello <user's name> " is returned to the user when this API is called.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloMessage'
+              examples:
+                Jessica:
+                  value:
+                    name: Jessica Smith
+  /goodbye/{name}:
+    get:
+      description: Describe this route
+      summary: Describe this route
+      operationId: showGoodbyeByName
+      parameters:
+        - in: path
+          name: name
+          required:  true
+          description:  An api that takes in a user's name and returns a simple goodbye message back to the user.
+          schema:
+            type:  string
+      responses:
+        200:
+          description: A message of "Goodbye <user's name> " is returned to the user when this API is called.
+          content:
+            application/json:
+              examples:
+                  Thaddeus:
+                    value:
+                      name: Thaddeus Madison Jr
+              schema:
+                $ref: '#/components/schemas/HelloMessage'
+
+components:
+  schemas:
+    HelloMessages:
+      type: array
+      items:
+        $ref: '#/components/schemas/HelloMessage'
+    HelloMessage:    # Schema named: Hello Message
+      type: object
+      properties:
+        name:
+          type: string
