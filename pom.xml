@@ -79,6 +79,14 @@
 							<inputSpec>${project.basedir}/src/main/resources/thad_swagger_v2.yaml</inputSpec>
 							<language>java</language>
 							<library>resttemplate</library>
+							<output>${project.basedir}</output>
+							<modelPackage>com.madthad91.personal.demo1</modelPackage>
+							<generateApis>false</generateApis>
+							<generateApiTests>false</generateApiTests>
+							<generateApiDocumentation>false</generateApiDocumentation>
+							<generateModelTests>false</generateModelTests>
+							<generateModelDocumentation>false</generateModelDocumentation>
+							<generateSupportingFiles>false</generateSupportingFiles>
 						</configuration>
 					</execution>
 				</executions>
